@@ -81,17 +81,13 @@ If we want to predict Failure Type (with sensible models such as Logistic Regres
    * Data imbalanced: Preparing different dataset and knowing in wich case / with which model they must be used
    * Preparing parameters for specific models
 
-3. **Model training and comparison**
+4. **Model training and comparison**
 
-   * Applying models on Target
-     * Applying models on Failure Type if a Target is detected
-   * Evaluating predictions
-
-4. **Overcoming obstacles after first predictions**
-
-   * Overfitting
-   * Underfitting
+   * For each prediction (Target and Failure Type), same procedures:
+       * Applying simple models to determine which are the best with highest Recall
+       * Optimizing parameters for each with GridSearch
+       * Trying multiple comparison (Bagging, Voting and Stacking classifiers) to find best prediction
   
-4. **Final pipeline**
+5. **Final pipeline**
    
-   * Creating final version of a model prediction according to best outcome by joining the best models
+   * Creating final version of a model prediction that predicts Target, then if a failure is detected will predicts Failure Type, according to best outcome by using the best combination found in step 4
